@@ -1,0 +1,12 @@
+# Intellij IDEA related resources
+.idea
+/*.iml
+/*.ipr
+/*.iws
+
+# gradle related resources
+.gradle
+/build/
+
+# output directory
+/out
