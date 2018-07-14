@@ -2,7 +2,7 @@ package tutorial
 
 fun main(args: Array<String>){
   // this gives error since a value cannot be null by default
-  //
+  // That is, 'nullable String' is a different type than 'String'
 //    var value : String = null
   var nullableValue : String? = null
   fun returnNull() : String? {return null}
