@@ -47,6 +47,10 @@ fun main(args: Array<String>){
 
   // Inline higher-order function for better performance
   execute("Hello, World!", { string -> println(string) })
+
+  // Access generic types in runtime using (inline, reified)
+  genericFunction<Int>("Hello")
+  genericFunction<Int>(2)
 }
 
 /**
@@ -107,4 +111,17 @@ inline fun execute(input: Any, function: (Any) -> Any) {
   println("Before execution")
   function(input)
   println("After execution")
+}
+
+/**
+ * Use inline with reified
+ * to access generic type information at runtime
+ * which cannot be done without (inline, reified) due to JVN erasure
+ */
+inline fun <reified T> genericFunction(x: Any){
+  if(x is T){
+    println("'$x' type matches the generic type")
+  }else{
+    println("'$x' type doesn't match the generic type")
+  }
 }
