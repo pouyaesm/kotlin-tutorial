@@ -1,5 +1,6 @@
 package tutorial
 
+import com.sun.org.apache.xpath.internal.operations.Bool
 import java.util.concurrent.Executors
 
 fun main(args: Array<String>){
@@ -16,15 +17,18 @@ fun main(args: Array<String>){
   val dog = Dog("dog", 15.0, 14.0, "John")
   dog.printInfo()
 
-  // Interface
-  val tweety = Bird("tweety")
-  tweety.fly(10.0)
-
   // Function extension (super cool and weird!)
   fun Dog.eat() {
     println("Dog is eating")
   }
   dog.eat()
+
+  // Infix function use
+  println("Is John the dog's owner? ${dog isOwnedBy "John"}.")
+
+  // Interface
+  val tweety = Bird("tweety")
+  tweety.fly(10.0)
 
   // Interface inference: instead of using new Runnable(){public run(){..}}
   // Kotlin places the function inside run(){}
@@ -63,6 +67,11 @@ open class Dog(name: String,
   override fun printInfo() {
     println("Dog name is $name, $height height and weighs $weight, and owned by $owner")
   }
+
+  /**
+   * Infix function f can be used as 'a f b' instead of 'a.f(b)'
+   */
+  infix fun isOwnedBy(name : String) = owner == name
 }
 
 interface Flyable{
