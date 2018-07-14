@@ -2,9 +2,9 @@ package tutorial
 
 fun main(args: Array<String>){
   // Not found (but compilable)
-  noMoreUse()
+//  noMoreUse()
   // Raises error
-  seeButNoMoreUse()
+//  seeButNoMoreUse()
   // Raises IDE warning
   betterNotToUse()
 }
