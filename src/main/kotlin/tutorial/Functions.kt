@@ -44,6 +44,9 @@ fun main(args: Array<String>){
   // Getting rid of java Erasure problem using @JvmName
   println("OverloadedInt: ${aggregate(listOf(1, 2, 3))}")
   println("OverloadedString: ${aggregate(listOf("a, ", "b, ", "c"))}")
+
+  // Inline higher-order function for better performance
+  execute("Hello, World!", { string -> println(string) })
 }
 
 /**
@@ -92,4 +95,16 @@ fun aggregate(list: List<String>) : String {
   var concat = ""
   list.forEach { string -> concat += string }
   return concat
+}
+
+
+/**
+ * Use 'inline' only for higher-order functions
+ * Compiler replaces the execute(.) call with its internal code
+ * which removes one function call leading to better performance
+ */
+inline fun execute(input: Any, function: (Any) -> Any) {
+  println("Before execution")
+  function(input)
+  println("After execution")
 }
