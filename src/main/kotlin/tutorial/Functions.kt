@@ -40,6 +40,10 @@ fun main(args: Array<String>){
   // If you are sure that only one thread will reach this, use lazy(NONE)
   val name : String by lazy(LazyThreadSafetyMode.NONE) { "John" + " Doe" }
   println("Lazy name is $name")  // function is called here as the first access
+
+  // Getting rid of java Erasure problem using @JvmName
+  println("OverloadedInt: ${aggregate(listOf(1, 2, 3))}")
+  println("OverloadedString: ${aggregate(listOf("a, ", "b, ", "c"))}")
 }
 
 /**
@@ -68,4 +72,24 @@ fun mathOnList(numList: List<Int>, func: (num: Int) -> Int): Unit {
   for (num in numList){
     println("mathOn $num: ${func(num)}")
   }
+}
+
+/**
+ * Erasing Erasure
+ * Overload different generic types
+ * with the same name by telling Kotlin to replace their name on compile
+ * (not possible in java since generics are erased resulting in the same signature)
+ */
+@JvmName("aggregateInt")
+fun aggregate(list: List<Int>) : Int {
+  var sum = 0
+  list.forEach{value -> sum += value}
+  return sum
+}
+
+@JvmName("aggregateString")
+fun aggregate(list: List<String>) : String {
+  var concat = ""
+  list.forEach { string -> concat += string }
+  return concat
 }
