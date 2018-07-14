@@ -1,6 +1,14 @@
 package tutorial
 
+import kotlin.system.measureNanoTime
+
 fun main(args: Array<String>){
+  // Measuring code block execution time
+  var x = 0.0
+  val duration = measureNanoTime{
+    x = Math.pow(Math.E, 20.0)
+  }
+  println("Math.pow took $duration ns")
 }
 
 /**
