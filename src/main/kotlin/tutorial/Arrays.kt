@@ -20,6 +20,8 @@ fun main(args: Array<String>){
     val skippedRange = range.step(3)
     for(v in skippedRange) println("skipped value: $v")
 
+    val rangeToList = range.toList()
+
     // Loop over array indices / values
     val array = arrayOf(0, 3, 6, 9)
     for(i in array.indices){
@@ -27,5 +29,33 @@ fun main(args: Array<String>){
     }
     for((i, v) in array.withIndex()){
         println("($i, $v)")
+    }
+
+    // Collection operators
+    val numList = 1..5
+
+    println("Sum of list: ${numList.reduce{a, b -> a + b}}")
+    println("Sum of list + 10: ${numList.fold(10){a, b -> a + b}}")
+    println("List has any Even: ${numList.any{it % 2 == 0}}")
+    println("List has only Even: ${numList.all{it % 2 == 0}}")
+
+    val smallerThan4 = numList.filter { it < 4 }
+    smallerThan4.forEach {num -> println("Values < 4: $num")}
+
+    var newList = numList.map {num -> num * 2}  // 1..5 -> 2..10
+    newList.forEach {num -> println("New value: $num")}
+
+    // Mutable List
+    var mutableList = mutableListOf(1, 2, 3, 4)
+    mutableList.add(5)
+    println("Mutable list: $mutableList, " +
+            "first item: ${mutableList.first()}, " +
+            "subList: ${mutableList.subList(0, 2)}")
+
+    // (key, value) map
+    var mutableMap = mutableMapOf(Pair(1, "hello"), Pair(2, "bye"))
+    println("Map: $mutableMap, Map[1]: ${mutableMap[1]}, Map[3]: ${mutableMap[3] ?: "null"}")
+    for ((i, v) in mutableMap){
+        println("Iterate map: ($i, $v)")
     }
 }

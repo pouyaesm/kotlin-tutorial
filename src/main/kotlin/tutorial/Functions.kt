@@ -30,7 +30,9 @@ fun main(args: Array<String>){
     println("4 x 5 = ${multiply(4, 5)}")
 
     // Higher-order functions
-
+    val mult3 = makeMathFunction(3)
+    println("mathFunction(5) = 5 * 3 = ${mult3(5)}")
+    mathOnList((1..10).toList(), mult3)
 }
 
 /**
@@ -47,4 +49,16 @@ fun getSum(vararg values : Int) : Int {
     var sum = 0
     values.forEach {value -> sum += value}
     return sum
+}
+
+/**
+ * Higher-order function that builds a math function
+ * for the given coefficient
+ */
+fun makeMathFunction(coefficient: Int): (Int) -> Int = {num -> num * coefficient}
+
+fun mathOnList(numList: List<Int>, func: (num: Int) -> Int): Unit {
+    for (num in numList){
+        println("mathOn $num: ${func(num)}")
+    }
 }
