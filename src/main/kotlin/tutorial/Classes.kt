@@ -1,5 +1,7 @@
 package tutorial
 
+import java.util.concurrent.Executors
+
 fun main(args: Array<String>){
   println("Hello, world!")
   try {
@@ -17,6 +19,19 @@ fun main(args: Array<String>){
   // Interface
   val tweety = Bird("tweety")
   tweety.fly(10.0)
+
+  // Function extension (super cool and weird!)
+  fun Dog.eat() {
+    println("Dog is eating")
+  }
+  dog.eat()
+
+  // Interface inference: instead of using new Runnable(){public run(){..}}
+  // Kotlin places the function inside run(){}
+  val printThreadInfo = {println("Current thread is ${Thread.currentThread().name}")}
+  printThreadInfo()
+  val executor = Executors.newSingleThreadExecutor()
+  executor.execute({ printThreadInfo() })
 }
 
 /**
