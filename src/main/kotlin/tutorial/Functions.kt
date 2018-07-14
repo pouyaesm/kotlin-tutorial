@@ -120,8 +120,8 @@ inline fun execute(input: Any, function: (Any) -> Any) {
  */
 inline fun <reified T> genericFunction(x: Any){
   if(x is T){
-    println("'$x' type matches the generic type ${T::class}")
+    println("'$x' type matches the generic type ${T::class.simpleName}")
   }else{
-    println("'$x' type doesn't match the generic ${T::class}")
+    println("'$x' type doesn't match the generic ${T::class.simpleName}")
   }
 }

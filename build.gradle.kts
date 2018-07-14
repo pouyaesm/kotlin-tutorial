@@ -1,19 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-buildscript {
-    var kotlin_version: String by extra
-    kotlin_version = "1.2.31"
-
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath(kotlinModule("gradle-plugin", kotlin_version))
-    }
-}
-
 plugins {
     java
+    kotlin("jvm") version "1.2.51"
 }
 
 group = "io.github.pouyaesm"
@@ -30,8 +19,11 @@ repositories {
 }
 
 dependencies {
-    compile(kotlinModule("stdlib-jdk8", kotlin_version))
+    compile(kotlin("stdlib-jdk8"))
     testCompile("junit", "junit", "4.12")
+
+    // kotlin-reflect is used for reflection related codes like class.simpleName
+    compile("org.jetbrains.kotlin:kotlin-reflect:$kotlin_version")
 }
 
 configure<JavaPluginConvention> {
@@ -40,3 +32,4 @@ configure<JavaPluginConvention> {
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
+
