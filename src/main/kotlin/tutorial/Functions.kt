@@ -38,8 +38,8 @@ fun main(args: Array<String>){
   // These functions are executed when the assignee is called for the first time
   // lazy guarantees one execution by locking other threads
   // If you are sure that only one thread will reach this, use lazy(NONE)
-  val name : String by lazy(LazyThreadSafetyMode.NONE) { "John" + " Doe" }
-  println("Lazy name is $name")  // function is called here as the first access
+  val fullName : String by lazy(LazyThreadSafetyMode.NONE) { "John" + " Doe" }
+  println("Lazy name is $fullName")  // function is called here as the first access
 
   // Getting rid of java Erasure problem using @JvmName
   println("OverloadedInt: ${aggregate(listOf(1, 2, 3))}")
@@ -51,6 +51,9 @@ fun main(args: Array<String>){
   // Access generic types in runtime using (inline, reified)
   genericFunction<Int>("Hello")
   genericFunction<Int>(2)
+
+  // Alias types for better readability without changing variable names
+  register("John")
 }
 
 /**
@@ -124,4 +127,13 @@ inline fun <reified T> genericFunction(x: Any){
   }else{
     println("'$x' type doesn't match the generic ${T::class.simpleName}")
   }
+}
+
+/**
+ * Use typealias to give better meaning to (variable, type) pair
+ * without changing the variable name
+ */
+typealias CustomerName = String
+fun register(name : CustomerName){
+  println("Customer $name registered")
 }

@@ -1,6 +1,5 @@
 package tutorial
 
-import com.sun.org.apache.xpath.internal.operations.Bool
 import java.util.concurrent.Executors
 
 fun main(args: Array<String>){
