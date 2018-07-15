@@ -41,16 +41,25 @@ fun main(args: Array<String>){
  * Classes are final by default unless using 'open'
  * to let other classes inheriting them
  */
-open class Animal(val name: String, var height: Double, var weight: Double){
+open class Animal(val name: String){
+
+  var height : Double = 0.0
+  var weight : Double = 0.0
 
   /**
-   * init {} acts as the secondary constructor
+   * This secondary constructor calls the first constructor to
+   * set the name. First constructor is defined next to the class name: Animal(<here>)
    */
+  constructor(name: String, height: Double, weight: Double) : this(name) {
+    require(height > 0){"height must be greater than zero"}
+    require(weight > 0){"weight must be greater than zero"}
+    this.height = height
+    this.weight = weight
+  }
+
   init {
     val hasDigit = Regex(".*\\d+.*")
     require(!name.matches(hasDigit)){"Animal name can't contain numbers"}
-    require(height > 0){"height must be greater than zero"}
-    require(weight > 0){"weight must be greater than zero"}
   }
 
   /**
