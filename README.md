@@ -36,3 +36,4 @@ This is a collection of short programming examples to learn Kotlin from basic to
 1. [10 Kotlin Tricks in 10 ish minutes by Jake Wharton](https://www.youtube.com/watch?v=0sPzDwS55wM&t=269s)
 1. [Kotlin 102 - Beyond the basics by Hadi Hariri](https://www.youtube.com/watch?v=a7QpoMj2uIA)
 1. [Kotlin Tutorial - Telusko Learnings](https://www.youtube.com/watch?v=Org0vh-VSgA&list=PLsyeobzWxl7rooJFZhc3qPLwVROovGCfh&index=2&t=6s)
+1. [KotlinConf 2017 - Introduction to Coroutines by Roman Elizarov](https://www.youtube.com/watch?v=_hfBv0a09Jc&t=4s)
