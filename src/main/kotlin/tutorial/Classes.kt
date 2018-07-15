@@ -38,9 +38,8 @@ fun main(args: Array<String>){
   val product2 = Product(name="Soap", price=1.0)
   println("Data class isEqual: ${product1 == product2}")
   println("Data class toString: ${product1}")
-  val product1Copy = product1.copy() // deep copy
-  product1Copy.name = "Liquid Soap" // change the name of copy
-  println("Data class original (${product1.name}), copy {${product1Copy.name})")
+  val productCopy = product1.copy(name = "Liquid Soap") // deep copy
+  println("Data class original (${product1.name}), copy {${productCopy.name})")
 
   // Interface inference: instead of using new Runnable(){public run(){..}}
   // Kotlin places the function inside run(){}
