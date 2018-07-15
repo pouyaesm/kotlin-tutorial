@@ -37,7 +37,7 @@ fun main(args: Array<String>){
   val product1 = Product(name="Soap", price=1.0)
   val product2 = Product(name="Soap", price=1.0)
   println("Data class isEqual: ${product1 == product2}")
-  println("Data class toString: ${product1}")
+  println("Data class toString: $product1")
   val productCopy = product1.copy(name = "Liquid Soap") // deep copy
   println("Data class original (${product1.name}), copy {${productCopy.name})")
 
@@ -46,7 +46,7 @@ fun main(args: Array<String>){
   val printThreadInfo = {println("Current thread is ${Thread.currentThread().name}")}
   printThreadInfo()
   val executor = Executors.newSingleThreadExecutor()
-  executor.execute({ printThreadInfo() })
+  executor.execute { printThreadInfo() }
 }
 
 /**
@@ -90,7 +90,7 @@ open class Animal(val name: String){
 open class Dog(name: String,
                height: Double,
                weight: Double,
-               var owner: String) : Animal(name, height, weight) {
+               private var owner: String) : Animal(name, height, weight) {
   /**
    * First Animal init is executed then
    * Dog init
