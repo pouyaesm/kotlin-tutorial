@@ -58,6 +58,7 @@ open class Animal(val name: String){
   }
 
   init {
+    println("init Animal")
     val hasDigit = Regex(".*\\d+.*")
     require(!name.matches(hasDigit)){"Animal name can't contain numbers"}
   }
@@ -78,6 +79,14 @@ open class Dog(name: String,
                height: Double,
                weight: Double,
                var owner: String) : Animal(name, height, weight) {
+  /**
+   * First Animal init is executed then
+   * Dog init
+   */
+  init {
+    println("init Dog")
+  }
+
   override fun printInfo() {
     println("Dog name is $name, $height height and weighs $weight, and owned by $owner")
   }
