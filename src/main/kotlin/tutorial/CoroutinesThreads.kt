@@ -7,8 +7,9 @@ import kotlinx.coroutines.experimental.*
 fun main(args: Array<String>) {
   println("Before calling launch")
   launch {
-    val result = combine()
-    println("Combined result of multiple async functions: $result")
+    var result = 0
+    val duration = measureTimeMillis { result = combine() }
+    println("Result of async combine of three 1 sec functions: $result, duration: $duration ms")
   }
   /**
    * This 'println' will be executed before the 'println' inside 'launch'
