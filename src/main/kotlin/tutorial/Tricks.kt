@@ -9,6 +9,13 @@ fun main(args: Array<String>){
     x = Math.pow(Math.E, 20.0)
   }
   println("Math.pow took $duration ns")
+
+  // Use backticks `` to define or use a keyword as function name
+  // This is mainly used to call
+  // a Java function that its name is (or will be) Kotlin keyword
+  fun `fun`() = println("my name is a keyword")
+  `fun`()
+  System.`in`.available() // Java function 'in' is reserved in Kotlin
 }
 
 /**
