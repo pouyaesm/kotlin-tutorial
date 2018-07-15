@@ -10,10 +10,10 @@ fun main(args: Array<String>){
   // Threads have major memory / time overhead for over 10K threads
   val jobs = 1..50_000
   val coRoutingDuration = measureTimeMillis { useCoRoutines(jobs) }
-  println("${jobs.count()} jobs ran on thread in $coRoutingDuration ms")
+  println("${jobs.count()} jobs ran on co-routines in $coRoutingDuration ms")
 
   val threadDuration = measureTimeMillis { useThreads(jobs) }
-  println("${jobs.count()} jobs ran on thread in $threadDuration ms")
+  println("${jobs.count()} jobs ran on threads in $threadDuration ms")
 }
 
 fun useThreads(jobs: IntRange){
