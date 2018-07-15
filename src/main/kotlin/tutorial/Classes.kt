@@ -43,6 +43,9 @@ fun main(args: Array<String>){
  */
 open class Animal(val name: String, var height: Double, var weight: Double){
 
+  /**
+   * init {} acts as the secondary constructor
+   */
   init {
     val hasDigit = Regex(".*\\d+.*")
     require(!name.matches(hasDigit)){"Animal name can't contain numbers"}
