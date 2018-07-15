@@ -4,16 +4,54 @@ import kotlin.concurrent.thread
 import kotlin.system.measureTimeMillis
 import kotlinx.coroutines.experimental.*
 
-fun main(args: Array<String>){
-  println("Hello, world!")
+fun main(args: Array<String>) {
+  println("Before calling launch")
+  launch {
+    val result = combine()
+    println("Combined result of multiple async functions: $result")
+  }
+  /**
+   * This 'println' will be executed before the 'println' inside 'launch'
+   * since the main thread will not wait for the completion of code
+   * inside 'launch'. To execute this println after combined result,
+   * add 'runBlocking' to main function and remove the launch {};
+   * this way, main thread will wait for the result and then proceeds
+   * to next lines
+    */
+  println("After calling launch")
 
+  // Compare co-routine vs thread performance
   // Threads have major memory / time overhead for over 10K threads
-  val jobs = 1..50_000
+  val jobs = 1..20_000
   val coRoutingDuration = measureTimeMillis { useCoRoutines(jobs) }
   println("${jobs.count()} jobs ran on co-routines in $coRoutingDuration ms")
 
   val threadDuration = measureTimeMillis { useThreads(jobs) }
   println("${jobs.count()} jobs ran on threads in $threadDuration ms")
+}
+
+/**
+ * Combine the result of asynchronously executed functions
+ * using 'await'; Either use 'suspend' keyword or wait for
+ * the result of suspended functions in a regular function with runBlocking
+ */
+suspend fun combine() : Int {
+  // result retrievers are executed asynchronously
+  val firstResult = async{ retrieve(1) }
+  val secondResult = async{ retrieve(2) }
+  val thirdResult = async{ retrieve(3) }
+  // .await() blocks the thread until the value of async function is returned
+  return firstResult.await() + secondResult.await() + thirdResult.await()
+}
+
+/**
+ * Keyword 'suspend' indicates that function is blocking
+ * and it takes time for the function to return a result
+ * This function is an analogy to IO jobs
+ */
+suspend fun retrieve(num: Int) : Int {
+  delay(1000L)
+  return num * 2
 }
 
 fun useThreads(jobs: IntRange){
