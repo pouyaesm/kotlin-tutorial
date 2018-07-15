@@ -4,13 +4,16 @@ import java.util.concurrent.Executors
 
 fun main(args: Array<String>){
   println("Hello, world!")
+
+  // Create a class by setting the variables defined in constructor
+  val animal = Animal(name = "dog", height = 12.0, weight = 10.0)
+  animal.printInfo()
+  // Create a class with a name that violates the name validation in init{}
   try {
     val invalidAnimal = Animal(name = "c4", height = 12.0, weight = 10.0)
   }catch (e: IllegalArgumentException){
     e.printStackTrace()
   }
-  val animal = Animal(name = "dog", height = 12.0, weight = 10.0)
-  animal.printInfo()
 
   // Class inheritance
   val dog = Dog("dog", 15.0, 14.0, "John")
@@ -28,6 +31,16 @@ fun main(args: Array<String>){
   // Interface
   val tweety = Bird("tweety")
   tweety.fly(10.0)
+
+  // A 'data' class gives .toString(), .equals(), and .copy() for free
+  // In java you need a lot of boiler plate for these methods
+  val product1 = Product(name="Soap", price=1.0)
+  val product2 = Product(name="Soap", price=1.0)
+  println("Data class isEqual: ${product1 == product2}")
+  println("Data class toString: ${product1}")
+  val product1Copy = product1.copy() // deep copy
+  product1Copy.name = "Liquid Soap" // change the name of copy
+  println("Data class original (${product1.name}), copy {${product1Copy.name})")
 
   // Interface inference: instead of using new Runnable(){public run(){..}}
   // Kotlin places the function inside run(){}
@@ -107,3 +120,9 @@ open class Bird constructor(var name: String, override var flies : Boolean = tru
     println("$name flied $distance miles")
   }
 }
+
+/**
+ * 'data' modifier provides toString(), equals(), copy()
+ * functions, freeing use from writing boiler-plates
+ */
+data class Product(var name: String, var price: Double)
