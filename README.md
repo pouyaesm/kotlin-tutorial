@@ -18,17 +18,17 @@ This is a collection of short programming examples to learn Kotlin from basic to
     * Define '+' or '++' for custom objects
 1. Java in Kotlin ([Go to code](src/main/kotlin/tutorial/JavaInKotlin.kt)), and Kotlin in Java ([Go to code](src/main/java/tutorial/KotlinInJava.java))
     * See the referenced [Java class](src/main/java/tutorial/Person.java) in  Kotlin, and [Kotlin file](src/main/kotlin/tutorial/KotlinInJava.kt) in Java.
+1. Diverse tricks ([Go to code](src/main/kotlin/tutorial/Tricks.kt))
 1. Deprecating code ([Go to code](src/main/kotlin/tutorial/Deprecation.kt))
     * It is possible to deprecate a function in multiple levels, and defining an automated code for replacement.
-1. Using `Let` when there is concurrency ([Go to code](src/main/kotlin/tutorial/Let.kt))
-    * Uses a local copy to ensure that a variable will not be null inside a block
-1. Diverse tricks ([Go to code](src/main/kotlin/tutorial/Tricks.kt))
 1. Using co-routines, comparing co-routines with threads ([Go to code](src/main/kotlin/tutorial/CoroutinesThreads.kt))
     * Kotlin CoRoutines are very light-weight compared to java Thread.
 1. Domain Specific Language (DSL) style programming using higher-order functions ([Go to code](src/main/kotlin/tutorial/DomainSpecificLanguages.kt))
 1. Class property delegation ([Go to code](src/main/kotlin/tutorial/ClassPropertyDelegates.kt))
     * This is used to intercept the setting / getting of a class property
-
+1. Using `Let` when there is concurrency ([Go to code](src/main/kotlin/tutorial/Let.kt))
+    * Uses a local copy to ensure that a variable will not be null inside a block
+ 
 ---
 ### References
 
