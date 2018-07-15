@@ -14,6 +14,7 @@ This is a collection of short programming examples to learn Kotlin features from
 1. Conditionals ([Go to code](src/main/kotlin/tutorial/Conditionals.kt))
 1. Functions ([Go to code](src/main/kotlin/tutorial/Functions.kt))
 1. Classes ([Go to code](src/main/kotlin/tutorial/Classes.kt))
+1. Use Java in Kotlin ([Go to code](src/main/kotlin/tutorial/JavaInKotlin.kt))
 1. Deprecating code ([Go to code](src/main/kotlin/tutorial/Deprecation.kt))
     * It is possible to deprecate a function in multiple levels, and defining an automated code for replacement.
 1. Using `Let` when there is concurrency ([Go to code](src/main/kotlin/tutorial/Let.kt))
