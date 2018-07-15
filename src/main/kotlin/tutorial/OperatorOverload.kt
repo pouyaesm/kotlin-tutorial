@@ -2,11 +2,11 @@ package tutorial
 
 fun main(args: Array<String>){
   var blocks1 = Blocks(1)
-  val blocks2 = Blocks (2)
+  val blocks2 = Blocks(2)
   println("blocks1: $blocks1")
   println("++blocks1: ${++blocks1}")
   println("blocks1 ($blocks1) + blocks2 ($blocks2): ${blocks1 + blocks2}")
-  println("blocks1 plus blocks2: ${blocks1 plus blocks2}")  // due to 'infix' identifier
+  println("blocks1 plus blocks2: ${blocks1 plus blocks2}")  // due to using 'infix' identifier
 }
 
 class Blocks (var count: Int = 0){
