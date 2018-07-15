@@ -34,7 +34,7 @@ fun main(args: Array<String>) {
 /**
  * Combine the result of asynchronously executed functions
  * using 'await'; Either use 'suspend' keyword or wait for
- * the result of suspended functions in a regular function with runBlocking
+ * the result of suspended functions in a 'launch' or 'runBlocking' block
  */
 suspend fun combine() : Int {
   // result retrievers are executed asynchronously
