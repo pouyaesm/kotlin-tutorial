@@ -39,7 +39,7 @@ fun main(args: Array<String>){
 
 /**
  * Classes are final by default unless using 'open'
- * to let inheriting the classes
+ * to let other classes inheriting them
  */
 open class Animal(val name: String, var height: Double, var weight: Double){
 
