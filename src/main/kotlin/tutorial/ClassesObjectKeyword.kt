@@ -1,6 +1,9 @@
 package tutorial
 
 fun main(args: Array<String>){
+  // Call static function of a class
+  println(OperationCenter.info())
+
   // A singleton using 'object' keyword
   NameList.names.add("John")
   NameList.names.add("Barbara")
@@ -17,6 +20,23 @@ fun main(args: Array<String>){
 
 }
 
+class OperationCenter {
+  /**
+   * Use 'companion object {}' block to declare
+   * static variables and functions
+   */
+  companion object {
+    val id = 12345  // static variable
+    /**
+     * @JvmStatic is used to let Java access
+     * the static function using OperationCenter.info()
+     */
+    @JvmStatic
+    fun info(): String{
+      return "center id: $id, status: running"
+    }
+  }
+}
 /**
  * A singleton class of names
  */
