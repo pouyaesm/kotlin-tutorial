@@ -1,6 +1,6 @@
 ### Introduction
 
-This is a collection of short programming examples to learn Kotlin features from basic to advanced.
+This is a collection of short programming examples to learn Kotlin from basic to advanced.
 
 ---
 ### List
