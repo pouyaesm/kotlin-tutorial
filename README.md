@@ -33,3 +33,4 @@ This is a collection of short programming examples to learn Kotlin features from
 1. [Kotlin Tutorial](https://www.youtube.com/watch?v=H_oGi8uuDpA&t=2432s)
 1. [10 Kotlin Tricks in 10 ish minutes by Jake Wharton](https://www.youtube.com/watch?v=0sPzDwS55wM&t=269s)
 1. [Kotlin 102 - Beyond the basics by Hadi Hariri](https://www.youtube.com/watch?v=a7QpoMj2uIA)
+1. [Kotlin Tutorial Series](https://www.youtube.com/watch?v=Org0vh-VSgA&list=PLsyeobzWxl7rooJFZhc3qPLwVROovGCfh&index=2&t=6s)
