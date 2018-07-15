@@ -14,6 +14,8 @@ This is a collection of short programming examples to learn Kotlin from basic to
 1. Conditionals ([Go to code](src/main/kotlin/tutorial/Conditionals.kt))
 1. Functions ([Go to code](src/main/kotlin/tutorial/Functions.kt))
 1. Classes ([Go to code](src/main/kotlin/tutorial/Classes.kt))
+1. Operator overload ([Go to code](src/main/kotlin/tutorial/OperatorOverload.kt))
+    * Define '+' or '++' for custom objects
 1. Java in Kotlin ([Go to code](src/main/kotlin/tutorial/JavaInKotlin.kt)), and Kotlin in Java ([Go to code](src/main/java/tutorial/KotlinInJava.java))
     * See the referenced [Java class](src/main/java/tutorial/Person.java) in  Kotlin, and [Kotlin file](src/main/kotlin/tutorial/KotlinInJava.kt) in Java.
 1. Deprecating code ([Go to code](src/main/kotlin/tutorial/Deprecation.kt))
