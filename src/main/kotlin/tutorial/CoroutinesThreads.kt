@@ -34,6 +34,7 @@ fun useCoRoutines(jobs: IntRange) = runBlocking {
   jobs.forEach {
     // CommonPool: use a shared thread
     // Unconfined: use any thread and skip back and forth
+    // UI: execute the block inside launch in UI thread (for android)
     val job = launch(CommonPool) {
       delay(1000L)  // 1 second
     }
