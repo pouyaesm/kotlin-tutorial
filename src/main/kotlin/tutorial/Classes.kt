@@ -71,6 +71,9 @@ open class Animal(val name: String){
   }
 }
 
+/**
+ * Class Dog extends class Animal
+ */
 open class Dog(name: String,
                height: Double,
                weight: Double,
