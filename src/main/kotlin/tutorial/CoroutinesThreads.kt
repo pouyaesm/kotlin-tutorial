@@ -32,6 +32,8 @@ fun useThreads(jobs: IntRange){
 fun useCoRoutines(jobs: IntRange) = runBlocking {
   val coRoutines : MutableList<Job> = mutableListOf()
   jobs.forEach {
+    // CommonPool: use a shared thread
+    // Unconfined: use any thread and skip back and forth
     val job = launch(CommonPool) {
       delay(1000L)  // 1 second
     }
