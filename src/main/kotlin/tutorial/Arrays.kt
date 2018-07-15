@@ -1,5 +1,7 @@
 package tutorial
 
+import java.util.*
+
 fun main(args: Array<String>){
   val mixedArray = arrayOf(1, 3.14, "hello")
 
@@ -8,11 +10,12 @@ fun main(args: Array<String>){
   println("Index of 'hello': ${mixedArray.indexOf("hello")}")
 
   // copy array
-  var arrayCopy = mixedArray.copyOfRange(1, 3)
+  val arrayCopy = mixedArray.copyOfRange(1, 3)
+  println("Copy of last two elements: ${Arrays.toString(arrayCopy)}")
 
   // construct array
   val squareArray = Array(5, {index -> index * index})
-  println("square of 4: ${squareArray[4]}")
+  println("Square of 4: ${squareArray[4]}")
 
   // ranges
   val range = 1..10
@@ -42,18 +45,18 @@ fun main(args: Array<String>){
   val smallerThan4 = numList.filter { it < 4 }
   smallerThan4.forEach {num -> println("Values < 4: $num")}
 
-  var newList = numList.map {num -> num * 2}  // 1..5 -> 2..10
+  val newList = numList.map {num -> num * 2}  // 1..5 -> 2..10
   newList.forEach {num -> println("New value: $num")}
 
   // Mutable List
-  var mutableList = mutableListOf(1, 2, 3, 4)
+  val mutableList = mutableListOf(1, 2, 3, 4)
   mutableList.add(5)
   println("Mutable list: $mutableList, " +
           "first item: ${mutableList.first()}, " +
           "subList: ${mutableList.subList(0, 2)}")
 
   // (key, value) map
-  var mutableMap = mutableMapOf(Pair(1, "hello"), Pair(2, "bye"))
+  val mutableMap = mutableMapOf(Pair(1, "hello"), Pair(2, "bye"))
   println("Map: $mutableMap, Map[1]: ${mutableMap[1]}, Map[3]: ${mutableMap[3] ?: "null"}")
   for ((i, v) in mutableMap){
     println("Iterate map: ($i, $v)")
