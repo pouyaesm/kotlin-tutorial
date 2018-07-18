@@ -51,7 +51,7 @@ fun main(args: Array<String>){
 
 /**
  * Classes are final by default unless using 'open'
- * to let other classes inheriting them
+ * to let other classes extending them
  */
 open class Animal(val name: String){
 
