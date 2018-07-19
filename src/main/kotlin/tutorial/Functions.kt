@@ -48,6 +48,13 @@ fun main(args: Array<String>){
   // Inline higher-order function for better performance
   execute("Hello, World!", { string -> println(string) })
 
+  // Multi-line lambda
+  execute("Hello, World!") { string -> {
+      val pre = "Say "
+      println(pre + string)
+    }()
+  }
+
   // Access generic types in runtime using (inline, reified)
   genericFunction<Int>("Hello")
   genericFunction<Int>(2)
